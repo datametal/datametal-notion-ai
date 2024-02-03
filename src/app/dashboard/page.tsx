@@ -1,10 +1,10 @@
-// import CreateNoteDialog from '@/components/CreateNoteDialog'
+import CreateNoteDialog from '@/components/CreateNoteDialog'
 import { Button } from '@/components/ui/button'
-// import { Separator } from '@/components/ui/separator'
-// import { db } from '@/lib/db'
-// import { $notes } from '@/lib/db/schema'
+import { Separator } from '@/components/ui/separator'
+import { db } from '@/lib/db'
+import { $notes } from '@/lib/db/schema'
 import { UserButton, auth } from '@clerk/nextjs'
-// import { eq } from 'drizzle-orm'
+import { eq } from 'drizzle-orm'
 import { ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,7 +14,7 @@ type Props = {}
 
 const DashboardPage = async (props: Props) => {
   const { userId } = auth()
-  //   const notes = await db.select().from($notes).where(eq($notes.userId, userId!))
+  const notes = await db.select().from($notes).where(eq($notes.userId, userId!))
 
   return (
     <>
@@ -37,18 +37,18 @@ const DashboardPage = async (props: Props) => {
           </div>
 
           <div className='h-8'></div>
-          {/* <Separator /> */}
+          <Separator />
           <div className='h-8'></div>
           {/* list all the notes */}
           {/* if no notes, display this */}
-          {/* {notes.length === 0 && (
+          {notes.length === 0 && (
             <div className='text-center'>
               <h2 className='text-xl text-gray-500'>You have no notes yet.</h2>
             </div>
-          )} */}
+          )}
 
           {/* display all the notes */}
-          {/* <div className='grid grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-5'>
+          <div className='grid grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-5'>
             <CreateNoteDialog />
             {notes.map((note) => {
               return (
@@ -66,7 +66,7 @@ const DashboardPage = async (props: Props) => {
                 </a>
               )
             })}
-          </div> */}
+          </div>
         </div>
       </div>
     </>
