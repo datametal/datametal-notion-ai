@@ -29,7 +29,8 @@
     "react-dom": "^18",
     "standard-version": "^9.5.0",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.0",
